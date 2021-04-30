@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -33,7 +34,7 @@ public class NotificationsFragment extends Fragment {
 
         Reminder[] persons = makeArray();
         ReminderAdapter adapter = new ReminderAdapter(this.requireActivity(), persons);
-        ListView lv = (ListView) root.findViewById(R.id.NotifyList);
+        ListView lv = root.findViewById(R.id.NotifyList);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener((parent, view, position, id) -> {
             String name =  ((Reminder)parent.getItemAtPosition(position)).getName();

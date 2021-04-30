@@ -1,7 +1,5 @@
 package com.example.myaidkit;
 
-import java.util.Calendar;
-
 public class Reminder {
     String name;
     String date;
