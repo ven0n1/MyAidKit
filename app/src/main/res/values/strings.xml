@@ -12,4 +12,5 @@
     <string name="find">Найти</string>
     <string name="drugfound">Найдено препаратов</string>
     <string name="form">Форма выпуска:</string>
+    <string name="back">Назад</string>
 </resources>
