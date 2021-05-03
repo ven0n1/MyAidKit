@@ -13,4 +13,12 @@
     <string name="drugfound">Найдено препаратов</string>
     <string name="form">Форма выпуска:</string>
     <string name="back">Назад</string>
+    <string name="structure">Состав</string>
+    <string name="effect">Фармакологическое действие</string>
+    <string name="kinetics">Фармакокинетика</string>
+    <string name="indication">Показания активных веществ</string>
+    <string name="regimen">Режим дозирования</string>
+    <string name="sideEffect">Побочное действие</string>
+    <string name="contraindications">Противопоказания</string>
+    <string name="special">Особые указания</string>
 </resources>

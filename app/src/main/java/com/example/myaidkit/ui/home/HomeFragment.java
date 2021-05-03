@@ -1,29 +1,25 @@
 package com.example.myaidkit.ui.home;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.myaidkit.MainActivity;
+import com.example.myaidkit.Description;
 import com.example.myaidkit.Medicine;
 import com.example.myaidkit.MedicineAdapter;
 import com.example.myaidkit.R;
 
 public class HomeFragment extends Fragment {
-
+    final String NAME = "name";
+    final String FORM = "form";
     private HomeViewModel homeViewModel;
     Medicine[] persons = {};
     MedicineAdapter adapter;
@@ -41,11 +37,10 @@ public class HomeFragment extends Fragment {
                 adapter = new MedicineAdapter(requireContext(), persons);
                 lv.setAdapter(adapter);
                 lv.setOnItemClickListener((parent, root, position, id) -> {
-                    String name =  ((Medicine)parent.getItemAtPosition(position)).getName();
-                    String url = "https://www.google.ru/search?q=" + name.replace(" ", "+");
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(url));
-                    startActivity(i);
+                    Intent intent = new Intent(root.getContext(), Description.class);
+                    intent.putExtra(NAME, adapter.getItem(position).getName());
+                    intent.putExtra(FORM, adapter.getItem(position).getForm());
+                    startActivity(intent);
                 });
             }
         });

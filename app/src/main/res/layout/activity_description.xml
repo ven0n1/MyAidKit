@@ -13,7 +13,7 @@
         android:layout_margin="10dp"
         android:background="@color/white"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/DescButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -55,10 +55,207 @@
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/structure"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/structure"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/structureDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/effect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/effect"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/effectDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/kinetics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/kinetics"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/kineticsDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/indication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/indication"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/indicationDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/regimen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/regimen"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/regimenDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/sideEffect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/sideEffect"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/sideEffectDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/contraindications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/contraindications"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/contraindicationsDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/special"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:background="@drawable/border_desc"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:text="@string/special"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    app:drawableEndCompat="@android:drawable/arrow_down_float" />
+
+                <TextView
+                    android:id="@+id/specialDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    tools:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/DescButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
