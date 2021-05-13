@@ -67,7 +67,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/structure"
+                    android:id="@+id/composition"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -75,13 +75,13 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:text="@string/structure"
+                    android:text="@string/composition"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
-                    android:id="@+id/structureDesc"
+                    android:id="@+id/compositionDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -90,7 +90,7 @@
                     tools:visibility="gone" />
 
                 <TextView
-                    android:id="@+id/effect"
+                    android:id="@+id/influence"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -98,13 +98,13 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:text="@string/effect"
+                    android:text="@string/influence"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
-                    android:id="@+id/effectDesc"
+                    android:id="@+id/influenceDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -159,7 +159,7 @@
                     tools:visibility="gone" />
 
                 <TextView
-                    android:id="@+id/regimen"
+                    android:id="@+id/dosage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -167,13 +167,13 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:text="@string/regimen"
+                    android:text="@string/dosage"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
-                    android:id="@+id/regimenDesc"
+                    android:id="@+id/dosageDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -182,7 +182,7 @@
                     tools:visibility="gone" />
 
                 <TextView
-                    android:id="@+id/sideEffect"
+                    android:id="@+id/side_effects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -190,13 +190,13 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:text="@string/sideEffect"
+                    android:text="@string/side_effects"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
-                    android:id="@+id/sideEffectDesc"
+                    android:id="@+id/side_effectsDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
@@ -205,7 +205,7 @@
                     tools:visibility="gone" />
 
                 <TextView
-                    android:id="@+id/contraindications"
+                    android:id="@+id/contra"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="1dp"
@@ -213,13 +213,13 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:padding="5dp"
-                    android:text="@string/contraindications"
+                    android:text="@string/contra"
                     android:textColor="#000000"
                     android:textSize="24sp"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
-                    android:id="@+id/contraindicationsDesc"
+                    android:id="@+id/contraDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5dp"

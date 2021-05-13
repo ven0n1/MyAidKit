@@ -28,6 +28,7 @@ import java.util.concurrent.ExecutionException;
 
 public class HomeFragment extends Fragment {
     final String NAME = "name";
+    final String LINK = "link";
     final String FORM = "form";
     private HomeViewModel homeViewModel;
     Medicine[] medicines = {};
@@ -55,6 +56,7 @@ public class HomeFragment extends Fragment {
                 lv.setOnItemClickListener((parent, root, position, id) -> {
                     Intent intent = new Intent(root.getContext(), Description.class);
                     intent.putExtra(NAME, adapter.getItem(position).getName());
+                    intent.putExtra(LINK, adapter.getItem(position).getLink());
                     intent.putExtra(FORM, adapter.getItem(position).getForm());
                     startActivity(intent);
                 });
@@ -88,16 +90,16 @@ class MyTask extends AsyncTask<String, Void, Medicine[]> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        List<String> names = doc.select(".products-table-name .no-underline").eachText();
-        List<String> links = doc.select(".products-table-name .no-underline").eachAttr("href");
-        List<String> forms = doc.select(".products-table-zip .hyphenate").eachText();
-        String[] arrName = names.toArray(new String[0]);
-        String[] arrLink = links.toArray(new String[0]);
-        String[] arrForm = forms.toArray(new String[0]);
-        Medicine[] medicines = new Medicine[arrName.length];
+//        List<String> names = doc.select(".products-table-name .no-underline").eachText();
+//        List<String> links = doc.select(".products-table-name .no-underline").eachAttr("href");
+//        List<String> forms = doc.select(".products-table-zip .hyphenate").eachText();
+        String[] names = doc.select(".products-table-name .no-underline").eachText().toArray(new String[0]);
+        String[] links = doc.select(".products-table-name .no-underline").eachAttr("href").toArray(new String[0]);
+        String[] forms = doc.select(".products-table-zip .hyphenate").eachText().toArray(new String[0]);
+        Medicine[] medicines = new Medicine[names.length];
         Medicine medicine;
         for(int i = 0; i < medicines.length; i++){
-            medicine = new Medicine(arrName[i], arrLink[i], arrForm[i]);
+            medicine = new Medicine(names[i], links[i], forms[i]);
             medicines[i] = medicine;
         }
         return medicines;
