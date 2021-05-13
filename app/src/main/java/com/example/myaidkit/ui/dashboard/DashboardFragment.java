@@ -44,7 +44,7 @@ public class DashboardFragment extends Fragment {
         Medicine[] persons = new Medicine[100];
         Medicine person;
         for(int i = 0; i < persons.length; i++){
-            person = new Medicine(names[i], money[i]);
+            person = new Medicine(names[i], names[i], money[i]);
             persons[i] = person;
         }
         return persons;
