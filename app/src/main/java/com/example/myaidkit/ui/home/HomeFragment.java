@@ -30,6 +30,8 @@ public class HomeFragment extends Fragment {
     final String NAME = "name";
     final String LINK = "link";
     final String FORM = "form";
+    final String TYPE = "type";
+    final int INTERNET = 1;
     private HomeViewModel homeViewModel;
     Medicine[] medicines = {};
     MedicineAdapter adapter;
@@ -58,6 +60,7 @@ public class HomeFragment extends Fragment {
                     intent.putExtra(NAME, adapter.getItem(position).getName());
                     intent.putExtra(LINK, adapter.getItem(position).getLink());
                     intent.putExtra(FORM, adapter.getItem(position).getForm());
+                    intent.putExtra(TYPE, INTERNET);
                     startActivity(intent);
                 });
             }
@@ -86,7 +89,7 @@ class MyTask extends AsyncTask<String, Void, Medicine[]> {
     protected Medicine[] doInBackground(String... urls) {
         String url = urls[0];
         try {
-            doc = Jsoup.connect("https://www.vidal.ru/search?t=all&q=" + url + "&bad=on").get();
+            doc = Jsoup.connect("https://www.vidal.ru/search?t=product&q=" + url + "&bad=on").get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,7 +99,8 @@ class MyTask extends AsyncTask<String, Void, Medicine[]> {
         String[] names = doc.select(".products-table-name .no-underline").eachText().toArray(new String[0]);
         String[] links = doc.select(".products-table-name .no-underline").eachAttr("href").toArray(new String[0]);
         String[] forms = doc.select(".products-table-zip .hyphenate").eachText().toArray(new String[0]);
-        Medicine[] medicines = new Medicine[names.length];
+        int min = Math.min(names.length, Math.min(links.length, forms.length));
+        Medicine[] medicines = new Medicine[min];
         Medicine medicine;
         for(int i = 0; i < medicines.length; i++){
             medicine = new Medicine(names[i], links[i], forms[i]);
