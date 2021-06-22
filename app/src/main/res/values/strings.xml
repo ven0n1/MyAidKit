@@ -4,7 +4,7 @@
     <string name="title_dashboard">Справочник</string>
     <string name="title_notifications">Напоминания</string>
     <string name="name">Название:</string>
-    <string name="date">Дата:</string>
+    <string name="quantity">Кол-во:</string>
     <string name="time">Время:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -21,4 +21,6 @@
     <string name="side_effects">Побочное действие</string>
     <string name="contra">Противопоказания</string>
     <string name="special">Особые указания</string>
+    <string name="exp_date">Срок годности:</string>
+    <string name="add">Добавить</string>
 </resources>

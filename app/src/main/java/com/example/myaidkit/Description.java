@@ -1,6 +1,7 @@
 package com.example.myaidkit;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,12 +15,15 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -29,19 +33,25 @@ import com.google.gson.Gson;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
-public class Description extends AppCompatActivity {
+public class Description extends AppCompatActivity
+        implements DatePickerDialog.OnDateSetListener {
     final String NAME = "name";
     final String LINK = "link";
     final String FORM = "form";
     final String TYPE = "type";
+    final String DATE = "date input";
     final int INTERNET = 1;
     final int HOME = 2;
     String[] info;
     SQLiteDatabase mydatabase;
+    String date, n, f, link;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -61,6 +71,9 @@ public class Description extends AppCompatActivity {
         TextView side_effects = findViewById(R.id.side_effectsDesc);
         TextView contra = findViewById(R.id.contraDesc);
         TextView special = findViewById(R.id.specialDesc);
+        TextView textDate = findViewById(R.id.descTextDate);
+        TextView Date = findViewById(R.id.descDate);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,11 +98,16 @@ public class Description extends AppCompatActivity {
             });
         }
         int type = getIntent().getIntExtra(TYPE, 0);
-        String n = getIntent().getStringExtra(NAME);
-        String f = getIntent().getStringExtra(FORM);
-        String link = getIntent().getStringExtra(LINK);
+        n = getIntent().getStringExtra(NAME);
+        f = getIntent().getStringExtra(FORM);
+        link = getIntent().getStringExtra(LINK);
         name.setText(n);
         form.setText(f);
+        File dbpath = getApplicationContext().getDatabasePath("medicines");
+        if (!Objects.requireNonNull(dbpath.getParentFile()).exists()) {
+            dbpath.getParentFile().mkdirs();
+        }
+        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
         if(type == INTERNET){
             aod.setText("Добавить");
             try {
@@ -116,53 +134,25 @@ public class Description extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 //                    Medicine medicine = new Medicine(n, link, f, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7]);
-                    mydatabase = openOrCreateDatabase("medicines", MODE_PRIVATE,null);
-                    mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Description(" +
-                            "Name TEXT, " +
-                            "Link TEXT PRIMARY KEY, " +
-                            "Form TEXT, " +
-                            "Composition TEXT, " +
-                            "Influence TEXT, " +
-                            "Kinetics TEXT, " +
-                            "Indication TEXT, " +
-                            "Dosage TEXT, " +
-                            "SideEffects TEXT, " +
-                            "Contra TEXT, " +
-                            "Special TEXT" +
-                            ");");
-                    mydatabase.execSQL("INSERT INTO Description(Name, Link, Form, Composition, Influence, Kinetics, Indication, Dosage, SideEffects, Contra, Special) VALUES(" +
-                            DatabaseUtils.sqlEscapeString(n) + ", " +
-                            DatabaseUtils.sqlEscapeString(link) + ", " +
-                            DatabaseUtils.sqlEscapeString(f) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[0]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[1]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[2]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[3]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[4]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[5]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[6]) + ", " +
-                            DatabaseUtils.sqlEscapeString(info[7]) +
-                            ");");
+                    MyDialogFragment myDialogFragment = new MyDialogFragment();
+                    myDialogFragment.show(getSupportFragmentManager(), DATE);
                 }
             });
         } else if(type == HOME){
             aod.setText("Удалить");
-            mydatabase = SQLiteDatabase.openOrCreateDatabase("/data/data/com.example.myaidkit/databases/medicines",null);
             Cursor cursor = mydatabase.rawQuery("SELECT * FROM Description WHERE Link = " + DatabaseUtils.sqlEscapeString(link) + ";", null);
             cursor.moveToFirst();
-            new Thread(){
-                @Override
-                public void run() {
-                    composition.setText(cursor.getString(3));
-                    influence.setText(cursor.getString(4));
-                    kinetics.setText(cursor.getString(5));
-                    indication.setText(cursor.getString(6));
-                    dosage.setText(cursor.getString(7));
-                    side_effects.setText(cursor.getString(8));
-                    contra.setText(cursor.getString(9));
-                    special.setText(cursor.getString(10));
-                }
-            }.start();
+            composition.setText(cursor.getString(3));
+            influence.setText(cursor.getString(4));
+            kinetics.setText(cursor.getString(5));
+            indication.setText(cursor.getString(6));
+            dosage.setText(cursor.getString(7));
+            side_effects.setText(cursor.getString(8));
+            contra.setText(cursor.getString(9));
+            special.setText(cursor.getString(10));
+            textDate.setVisibility(View.VISIBLE);
+            Date.setVisibility(View.VISIBLE);
+            Date.setText(cursor.getString(11));
             cursor.close();
             aod.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -217,6 +207,25 @@ public class Description extends AppCompatActivity {
             slide_down(this, txt);
             d.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0, android.R.drawable.arrow_up_float,0);
         }
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        date = dayOfMonth + "." + (month + 1) + "." + year;
+        mydatabase.execSQL("INSERT INTO Description(Name, Link, Form, Composition, Influence, Kinetics, Indication, Dosage, SideEffects, Contra, Special, Date) VALUES(" +
+                DatabaseUtils.sqlEscapeString(n) + ", " +
+                DatabaseUtils.sqlEscapeString(link) + ", " +
+                DatabaseUtils.sqlEscapeString(f) + ", " +
+                DatabaseUtils.sqlEscapeString(info[0]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[1]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[2]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[3]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[4]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[5]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[6]) + ", " +
+                DatabaseUtils.sqlEscapeString(info[7]) +", " +
+                DatabaseUtils.sqlEscapeString(date) +
+                ");");
     }
 }
 

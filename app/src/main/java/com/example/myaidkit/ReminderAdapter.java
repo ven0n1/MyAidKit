@@ -30,7 +30,7 @@ public class ReminderAdapter extends ArrayAdapter <Reminder> {
             convertView.setBackgroundColor(Color.argb(150, 255, 255, 255));
         }
         ((TextView) convertView.findViewById(R.id.name_reminder)).setText(reminder.getName());
-        ((TextView) convertView.findViewById(R.id.date_reminder)).setText(reminder.getDate());
+        ((TextView) convertView.findViewById(R.id.quantity_reminder)).setText(reminder.getQuantity().toString());
         ((TextView) convertView.findViewById(R.id.time_reminder)).setText(reminder.getTime());
         return convertView;
     }

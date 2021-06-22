@@ -2,20 +2,20 @@ package com.example.myaidkit;
 
 public class Reminder {
     String name;
-    String date;
+    Float quantity;
     String time;
 
-    public Reminder(String name, String date, String time) {
+    public Reminder(String name, Float quantity, String time) {
         this.name = name;
-        this.date = date;
+        this.quantity = quantity;
         this.time = time;
     }
     public String getName() {
         return name;
     }
 
-    public String getDate() {
-        return date;
+    public Float getQuantity() {
+        return quantity;
     }
 
     public String getTime() {

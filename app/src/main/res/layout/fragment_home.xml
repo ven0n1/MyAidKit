@@ -21,7 +21,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:autofillHints=""
             android:background="@drawable/edittextbackground"
             android:ems="10"
             android:hint="@string/search"
