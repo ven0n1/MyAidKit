@@ -54,6 +54,23 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/descTextDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/exp_date"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/descDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:visibility="gone" />
         </LinearLayout>
 
         <ScrollView

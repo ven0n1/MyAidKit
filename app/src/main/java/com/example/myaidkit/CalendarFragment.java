@@ -8,7 +8,7 @@ import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
 
-public class MyDialogFragment extends DialogFragment {
+public class CalendarFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

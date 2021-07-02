@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAidKit">
-        <activity android:name=".ui.notifications.Notification"></activity>
+        <activity android:name=".ui.notifications.Notification"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".Description"
             android:screenOrientation="portrait" />

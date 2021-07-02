@@ -53,6 +53,7 @@ public class HomeFragment extends Fragment {
         }
         mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
         mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Notifications(" +
+                "ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
                 "Name TEXT, " +
                 "Quantity REAL, " +
                 "Time TEXT" +

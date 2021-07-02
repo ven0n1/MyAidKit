@@ -3,8 +3,6 @@ package com.example.myaidkit;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,26 +15,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.google.gson.Gson;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
@@ -134,8 +122,8 @@ public class Description extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
 //                    Medicine medicine = new Medicine(n, link, f, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7]);
-                    MyDialogFragment myDialogFragment = new MyDialogFragment();
-                    myDialogFragment.show(getSupportFragmentManager(), DATE);
+                    CalendarFragment calendarFragment = new CalendarFragment();
+                    calendarFragment.show(getSupportFragmentManager(), DATE);
                 }
             });
         } else if(type == HOME){
