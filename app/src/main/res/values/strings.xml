@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Моя аптечка</string>
+    <string name="app_name">Моя Аптечка</string>
     <string name="title_home">Главная</string>
     <string name="title_dashboard">Справочник</string>
     <string name="title_notifications">Напоминания</string>
