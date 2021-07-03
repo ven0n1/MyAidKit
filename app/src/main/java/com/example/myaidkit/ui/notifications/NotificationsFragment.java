@@ -33,6 +33,7 @@ import static android.app.Activity.RESULT_OK;
 
 public class NotificationsFragment extends Fragment {
     SQLiteDatabase mydatabase;
+    com.allyants.notifyme.Notification.NotificationDBHelper notifyDB;
     final String TYPE = "type";
     final String ID = "id";
     final String NAME = "name";
@@ -58,11 +59,8 @@ public class NotificationsFragment extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
-        File dbpath = requireContext().getDatabasePath("medicines");
-        if (!Objects.requireNonNull(dbpath.getParentFile()).exists()) {
-            dbpath.getParentFile().mkdirs();
-        }
-        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
+        notifyDB = new com.allyants.notifyme.Notification.NotificationDBHelper(getContext());
+        mydatabase = notifyDB.getReadableDatabase();
 
         Reminder[] reminders = makeArray();
         ReminderAdapter adapter = new ReminderAdapter(this.requireActivity(), reminders);
@@ -77,53 +75,31 @@ public class NotificationsFragment extends Fragment {
             intent.putExtra(TIME, adapter.getItem(position).getTime());
             startActivityForResult(intent, 2);
         });
-//        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                Toast.makeText(getContext(), Integer.toString(adapter.getItem(position).getId()), Toast.LENGTH_LONG).show();
-//                AlertDialog.Builder dialog = new AlertDialog.Builder(getContext());
-//                dialog.setTitle("Удаление напоминания");
-//                dialog.setMessage("Вы хотите удалить напоминание?");
-//                dialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        dialogInterface.dismiss();
-//                    }
-//                });
-//                dialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        mydatabase.delete("Notifications", "ID = " + adapter.getItem(position).getId(), null);
-//                    }
-//                });
-//                dialog.show();
-//                return true;
-//            }
-//        });
 
         return root;
     }
 
     Reminder[] makeArray(){
-        Cursor cursor = mydatabase.rawQuery("SELECT ID, Name, Quantity, Time FROM Notifications;", null);
+        Cursor cursor = mydatabase.rawQuery("SELECT _id, time, content FROM notification;", null);
         int count = cursor.getCount();
         int[] ids = new int[count];
         String[] names = new String[count];
-        Float[] qantities = new Float[count];
-        String[] times = new String[count];
+        Float[] quantities = new Float[count];
+        Long[] times = new Long[count];
         cursor.moveToFirst();
         for(int i = 0; i < count; i++){
             ids[i] = cursor.getInt(0);
-            names[i] = cursor.getString(1);
-            qantities[i] = cursor.getFloat(2);
-            times[i] = cursor.getString(3);
+            times[i] = cursor.getLong(1);
+            String[] ss = cursor.getString(2).substring(9).split(" в объеме: ");
+            names[i] = ss[0];
+            quantities[i] = ss.length == 2 ? Float.valueOf(ss[1]) : Float.valueOf(0);
             cursor.moveToNext();
         }
         cursor.close();
         Reminder[] reminders = new Reminder[count];
         Reminder reminder;
         for(int i = 0; i < reminders.length; i++){
-            reminder = new Reminder(ids[i], names[i], qantities[i], times[i]);
+            reminder = new Reminder(ids[i], names[i], quantities[i], times[i]);
             reminders[i] = reminder;
         }
         return reminders;

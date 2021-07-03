@@ -52,12 +52,6 @@ public class HomeFragment extends Fragment {
             dbpath.getParentFile().mkdirs();
         }
         mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
-        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Notifications(" +
-                "ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
-                "Name TEXT, " +
-                "Quantity REAL, " +
-                "Time TEXT" +
-                ");");
         mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Description(" +
                 "Name TEXT, " +
                 "Link TEXT PRIMARY KEY, " +

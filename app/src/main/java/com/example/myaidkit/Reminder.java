@@ -4,16 +4,16 @@ public class Reminder {
     int id;
     String name;
     Float quantity;
-    String time;
+    Long time;
 
-    public Reminder(int id, String name, Float quantity, String time) {
+    public Reminder(int id, String name, Float quantity, Long time) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.time = time;
     }
 
-    public Reminder(String name, Float quantity, String time) {
+    public Reminder(String name, Float quantity, Long time) {
         this.name = name;
         this.quantity = quantity;
         this.time = time;
@@ -31,7 +31,7 @@ public class Reminder {
         return quantity;
     }
 
-    public String getTime() {
+    public Long getTime() {
         return time;
     }
 }

@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.Calendar;
+
 public class ReminderAdapter extends ArrayAdapter <Reminder> {
 
     public ReminderAdapter(@NonNull Context context, @NonNull Reminder[] objects) {
@@ -31,7 +33,9 @@ public class ReminderAdapter extends ArrayAdapter <Reminder> {
         }
         ((TextView) convertView.findViewById(R.id.name_reminder)).setText(reminder.getName());
         ((TextView) convertView.findViewById(R.id.quantity_reminder)).setText(reminder.getQuantity().toString());
-        ((TextView) convertView.findViewById(R.id.time_reminder)).setText(reminder.getTime());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(reminder.getTime());
+        ((TextView) convertView.findViewById(R.id.time_reminder)).setText(calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE));
         return convertView;
     }
 }

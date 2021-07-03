@@ -24,4 +24,5 @@
     <string name="exp_date">Срок годности:</string>
     <string name="save">Сохранить</string>
     <string name="add">Добавить</string>
+    <string name="notifyOn">Включить уведомления?</string>
 </resources>
