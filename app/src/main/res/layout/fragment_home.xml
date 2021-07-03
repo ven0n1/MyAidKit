@@ -8,39 +8,48 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="-9dp"
+        tools:layout_editor_absoluteY="73dp">
 
         <EditText
             android:id="@+id/HomeSearch"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/edittextbackground"
+            android:layout_gravity="left"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="100dp"
+            android:background="@color/cardview_shadow_end_color"
+            android:drawableLeft="@android:drawable/ic_menu_search"
             android:ems="10"
+            android:fontFamily="@font/capriola"
+            android:foreground="@drawable/border_desc"
+            android:freezesText="true"
+            android:gravity="center"
             android:hint="@string/search"
             android:inputType="text"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:strokeColor="@color/black"
+            app:strokeWidth="10dp"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/HomeButton"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="@string/find"
+            android:layout_marginTop="0dp"
             android:textColor="@color/black"
-            app:backgroundTint="@color/white"
-            app:cornerRadius="20dp"
+            app:backgroundTint="@color/lightgr"
+            app:cornerRadius="400dp"
             app:strokeColor="@color/black"
-            app:strokeWidth="1dp" />
+            app:strokeWidth="0dp" />
 
     </LinearLayout>
 
@@ -61,8 +70,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="1dp"
-            android:background="#C1C1C1"
+            android:background="#2AF104"
             android:fallbackLineSpacing="false"
+            android:fontFamily="@font/acme"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/drugfound"
@@ -102,5 +112,19 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp" />
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="linearLayout2" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="403dp"
+        android:layout_height="70dp"
+        android:text="@string/app_name"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
