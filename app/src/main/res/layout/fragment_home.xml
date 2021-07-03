@@ -9,23 +9,28 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-9dp"
-        tools:layout_editor_absoluteY="73dp">
+        android:layout_height="160dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="470dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
 
         <EditText
             android:id="@+id/HomeSearch"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="top"
             android:layout_margin="@dimen/activity_horizontal_margin"
             android:layout_marginTop="100dp"
+            android:layout_weight="0.5"
             android:background="@color/cardview_shadow_end_color"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:ems="10"
             android:fontFamily="@font/capriola"
-            android:foreground="@drawable/border_desc"
+            android:foreground="@drawable/ic_launcher_background"
             android:freezesText="true"
             android:gravity="center"
             android:hint="@string/search"
@@ -37,19 +42,21 @@
             android:visibility="visible"
             app:strokeColor="@color/black"
             app:strokeWidth="10dp"
-            tools:visibility="visible" />
+            tools:visibility="visible">
+
+        </EditText>
 
         <Button
+            android:background = "@drawable/roundedbutton"
             android:id="@+id/HomeButton"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="0dp"
+            android:layout_width="17dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="0.5"
+            android:gravity="center"
             android:textColor="@color/black"
-            app:backgroundTint="@color/lightgr"
-            app:cornerRadius="400dp"
-            app:strokeColor="@color/black"
-            app:strokeWidth="0dp" />
+            app:iconTint="#770B0B"
+            app:strokeColor="@color/purple_500" />
 
     </LinearLayout>
 
@@ -69,14 +76,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="1dp"
-            android:background="#2AF104"
+            android:background="#431D780C"
             android:fallbackLineSpacing="false"
-            android:fontFamily="@font/acme"
+            android:fontFamily="@font/capriola"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="@string/drugfound"
-            android:textColor="@color/black"
+            android:text="@string/ress"
+            android:textColor="#0F2E11"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -121,10 +127,13 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="403dp"
-        android:layout_height="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:text="@string/app_name"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:textColor="#D61B1B"
+        android:textSize="48sp"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="28dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

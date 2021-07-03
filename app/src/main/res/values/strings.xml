@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Моя Аптечка</string>
-    <string name="title_home">Главная</string>
-    <string name="title_dashboard">Справочник</string>
+    <string name="title_home">Найти</string>
+    <string name="title_dashboard">Моя аптечка</string>
     <string name="title_notifications">Напоминания</string>
     <string name="name">Название:</string>
     <string name="quantity">Кол-во:</string>
@@ -11,6 +11,7 @@
     <string name="search">Поиск</string>
     <string name="find">Найти</string>
     <string name="drugfound">Найдено препаратов</string>
+    <string name="ress">Результаты поиска</string>
     <string name="form">Форма выпуска:</string>
     <string name="back">Назад</string>
     <string name="composition">Состав</string>
