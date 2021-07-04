@@ -9,6 +9,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="backtext">#7CBA2E2E</color>
+    <color name="forbutton">#F8FBFBFB</color>
     <color name="white">#FFFFFFFF</color>
     <color name="fortitle">#4FA67117</color>
 </resources>
