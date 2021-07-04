@@ -27,6 +27,7 @@
             android:layout_margin="1dp"
             android:background="#C1C1C1"
             android:fallbackLineSpacing="false"
+            android:fontFamily="@font/roboto_thin"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="@string/drugfound"
