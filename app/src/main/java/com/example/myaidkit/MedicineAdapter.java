@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 public class MedicineAdapter extends ArrayAdapter <Medicine> {
 
     public MedicineAdapter(@NonNull Context context, @NonNull Medicine[] objects) {
-        super(context, R.layout.reminder_item, objects);
+        super(context, R.layout.medicine_item, objects);
     }
 
     @NonNull
