@@ -77,20 +77,24 @@
 
             <TextView
                 android:id="@+id/HomeNameText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="start"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/HomeFormText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="start"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
                 android:text="@string/form"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
