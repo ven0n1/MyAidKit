@@ -16,21 +16,25 @@
 
         <TextView
             android:id="@+id/name_medicine"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="start"
             android:maxLength="15"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/form_medicine"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="start"
             android:maxLength="15"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:textColor="@color/black"
             android:textSize="24sp" />
     </LinearLayout>

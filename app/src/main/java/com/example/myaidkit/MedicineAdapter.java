@@ -14,13 +14,13 @@ import androidx.annotation.Nullable;
 public class MedicineAdapter extends ArrayAdapter <Medicine> {
 
     public MedicineAdapter(@NonNull Context context, @NonNull Medicine[] objects) {
-        super(context, R.layout.reminder_item, objects);
+        super(context, R.layout.medicine_item, objects);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Medicine reminder = getItem(position);
+        Medicine medicine = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.medicine_item, null);
         }
@@ -29,8 +29,8 @@ public class MedicineAdapter extends ArrayAdapter <Medicine> {
         } else {
             convertView.setBackgroundColor(Color.argb(150, 255, 255, 255));
         }
-        ((TextView) convertView.findViewById(R.id.name_medicine)).setText(reminder.getName());
-        ((TextView) convertView.findViewById(R.id.form_medicine)).setText(reminder.getForm());
+        ((TextView) convertView.findViewById(R.id.name_medicine)).setText(medicine.getName());
+        ((TextView) convertView.findViewById(R.id.form_medicine)).setText(medicine.getForm());
         return convertView;
     }
 }
