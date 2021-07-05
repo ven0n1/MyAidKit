@@ -22,7 +22,7 @@
     <string name="side_effects">Побочное действие</string>
     <string name="contra">Противопоказания</string>
     <string name="special">Особые указания</string>
-    <string name="exp_date">Срок годности:</string>
+    <string name="exp_date">Годен до:</string>
     <string name="save">Сохранить</string>
     <string name="add">Добавить</string>
     <string name="notifyOn">Включить уведомления?</string>

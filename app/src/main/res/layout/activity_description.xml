@@ -40,6 +40,7 @@
                 android:id="@+id/DescName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/fortitle"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -50,15 +51,17 @@
                 android:layout_height="wrap_content"
                 android:background="@color/backtext"
                 android:fontFamily="@font/roboto_thin"
+                android:textStyle="bold"
                 android:text="@string/form"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:textStyle="bold" />
+                 />
 
             <TextView
                 android:id="@+id/DescForm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/lightgr"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -67,24 +70,29 @@
                 android:id="@+id/descTextDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/backtext"
+                android:fontFamily="@font/roboto_thin"
                 android:text="@string/exp_date"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/descDate"
+                android:background="@color/lightgr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/background">
+            android:background="@drawable/depositphotos_151581574_stock_photo_light_green_paper_background_seamless">
 
             <LinearLayout
                 android:id="@+id/desc"
@@ -115,7 +123,9 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    tools:visibility="gone" />
+                    tools:visibility="gone"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/influence"
@@ -140,6 +150,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
 
                 <TextView
@@ -165,6 +177,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
 
                 <TextView
@@ -190,6 +204,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
 
                 <TextView
@@ -215,6 +231,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
 
                 <TextView
@@ -240,6 +258,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
 
                 <TextView
@@ -265,6 +285,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
 
                 <TextView
@@ -290,6 +312,8 @@
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:fontFamily="@font/roboto_thin"
+                    android:textStyle="bold"
                     tools:visibility="gone" />
             </LinearLayout>
         </ScrollView>
