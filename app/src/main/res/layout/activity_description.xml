@@ -29,31 +29,39 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/backtext"
+                android:fontFamily="@font/roboto_thin"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/DescName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/backtext"
+                android:fontFamily="@font/roboto_thin"
                 android:text="@string/form"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/DescForm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/descTextDate"
@@ -75,7 +83,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/background">
 
             <LinearLayout
                 android:id="@+id/desc"
@@ -91,10 +100,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/composition"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -114,10 +125,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/influence"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -137,10 +150,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/kinetics"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -160,10 +175,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/indication"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -183,10 +200,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/dosage"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -206,10 +225,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/side_effects"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -229,10 +250,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/contra"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView
@@ -252,10 +275,12 @@
                     android:background="@drawable/border_desc"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:text="@string/special"
                     android:textColor="#000000"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:drawableEndCompat="@android:drawable/arrow_down_float" />
 
                 <TextView

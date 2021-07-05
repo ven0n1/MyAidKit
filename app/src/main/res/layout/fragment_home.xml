@@ -66,9 +66,10 @@
             android:layout_height="70dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.1"
-            android:background="@drawable/editbutton"
+            android:background="@drawable/border_desc"
             android:gravity="center_vertical"
             android:textColor="@color/black"
+            app:backgroundTint="#CD88F811"
             app:icon="@android:drawable/ic_search_category_default"
             app:iconTint="#0E731E"
             app:strokeColor="#000000" />

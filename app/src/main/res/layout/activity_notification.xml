@@ -28,10 +28,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_thin"
                 android:gravity="center"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/notifyName"
@@ -59,10 +61,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_thin"
                 android:gravity="center"
                 android:text="@string/quantity"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/notifyQuantity"
@@ -98,7 +102,8 @@
             <TimePicker
                 android:id="@+id/notifyTime"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:headerBackground="@color/lightgr" />
 
 
         </LinearLayout>
