@@ -2,7 +2,9 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/acme</item>
+        <item>@font/bentham</item>
         <item>@font/capriola</item>
+        <item>@font/pt_sans</item>
         <item>@font/racing_sans_one</item>
         <item>@font/special_elite</item>
     </array>

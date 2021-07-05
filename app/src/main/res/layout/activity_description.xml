@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/border"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:padding="0dp">
 
             <TextView
                 android:id="@+id/textView4"
@@ -92,7 +92,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/depositphotos_151581574_stock_photo_light_green_paper_background_seamless">
+            android:background="@drawable/background">
 
             <LinearLayout
                 android:id="@+id/desc"
@@ -120,12 +120,13 @@
                     android:id="@+id/compositionDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:textColor="@color/black"
+                    android:background="@drawable/desctecxt"
                     android:textSize="24sp"
-                    tools:visibility="gone"
-                    android:fontFamily="@font/roboto_thin"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:visibility="gone" />
 
                 <TextView
                     android:id="@+id/influence"
@@ -147,10 +148,11 @@
                     android:id="@+id/influenceDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:textColor="@color/black"
+                    android:background="@drawable/desctecxt"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
 
@@ -174,10 +176,11 @@
                     android:id="@+id/kineticsDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
+                    android:background="@drawable/desctecxt"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
 
@@ -201,10 +204,11 @@
                     android:id="@+id/indicationDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
+                    android:background="@drawable/desctecxt"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
 
@@ -228,10 +232,11 @@
                     android:id="@+id/dosageDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/desctecxt"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
 
@@ -255,10 +260,11 @@
                     android:id="@+id/side_effectsDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
                     android:textColor="@color/black"
+                    android:background="@drawable/desctecxt"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
 
@@ -282,10 +288,11 @@
                     android:id="@+id/contraDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
+                    android:background="@drawable/desctecxt"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
 
@@ -309,10 +316,11 @@
                     android:id="@+id/specialDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_thin"
                     android:padding="5dp"
+                    android:background="@drawable/desctecxt"
                     android:textColor="@color/black"
                     android:textSize="24sp"
-                    android:fontFamily="@font/roboto_thin"
                     android:textStyle="bold"
                     tools:visibility="gone" />
             </LinearLayout>

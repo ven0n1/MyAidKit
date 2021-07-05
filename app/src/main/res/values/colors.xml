@@ -4,7 +4,7 @@
     <color name="purple_500">#FF6200EE</color>
     <color name="shtorka">#37AE22</color>
     <color name="purple_700">#FF3700B3</color>
-    <color name="lightgr">#AE66D166</color>
+    <color name="lightgr">#B013F832</color>
     <color name="medgr">#3CB371</color>
     <color name="toolbar">#06C300</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -13,5 +13,7 @@
     <color name="backtext">#7CBA2E2E</color>
     <color name="forbutton">#F8FBFBFB</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="fortitle">#4FA67117</color>
+    <color name="fortitleres">#D500FFF6</color>
+    <color name="fortitle">#E81CA5A0</color>
+    <color name="forhead">#ADFF07FF</color>
 </resources>

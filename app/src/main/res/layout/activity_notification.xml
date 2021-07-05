@@ -46,6 +46,7 @@
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:fontFamily="@font/capriola"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -79,6 +80,7 @@
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
+                android:fontFamily="@font/capriola"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -119,6 +121,7 @@
         android:textColor="@color/black"
         app:backgroundTint="@color/white"
         app:cornerRadius="20dp"
+        android:fontFamily="@font/capriola"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:strokeColor="@color/black"

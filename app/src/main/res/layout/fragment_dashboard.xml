@@ -25,13 +25,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="1dp"
-            android:background="#BCD82323"
+            android:background="@color/forhead"
             android:fallbackLineSpacing="false"
-            android:fontFamily="@font/capriola"
-            android:paddingLeft="90dp"
-            android:paddingRight="0dp"
+            android:fontFamily="@font/pt_sans"
+            android:paddingLeft="80dp"
+            android:paddingRight="80dp"
             android:text="@string/drugfound"
-            android:textColor="@color/black"
+            android:textAllCaps="true"
+            android:textColor="#DA000000"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -47,25 +48,28 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/fortitle"
+                android:fontFamily="@font/roboto_thin"
                 android:gravity="start"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/name"
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/HomeFormText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_thin"
                 android:gravity="start"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:text="@string/form"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <ListView
