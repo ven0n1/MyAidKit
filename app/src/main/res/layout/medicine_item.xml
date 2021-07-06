@@ -19,13 +19,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/lightgr"
             android:gravity="start"
             android:maxLength="15"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:background="@color/fortitleres"
+            android:textSize="19sp"
             android:textStyle="bold" />
 
         <TextView
@@ -33,12 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/lightgr"
+            android:fontFamily="@font/roboto_thin"
             android:gravity="start"
             android:maxLength="15"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="19sp"
             android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
