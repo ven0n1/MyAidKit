@@ -3,16 +3,16 @@
     <string name="title_home">Поиск лекарств</string>
     <string name="title_dashboard">Моя аптечка</string>
     <string name="title_notifications">Напоминания</string>
-    <string name="name">Название:</string>
-    <string name="quantity">Кол-во:</string>
-    <string name="time">Время:</string>
+    <string name="name">Название</string>
+    <string name="quantity">Кол-во</string>
+    <string name="time">Время</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search">Поиск</string>
     <string name="find">Найти</string>
     <string name="drugfound">Моя Аптечка</string>
     <string name="ress">Результаты поиска</string>
-    <string name="form">Форма выпуска:</string>
+    <string name="form">Форма выпуска</string>
     <string name="back">Назад</string>
     <string name="composition">Состав</string>
     <string name="influence">Фармакологическое действие</string>

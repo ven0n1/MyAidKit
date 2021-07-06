@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="1dp"
-            android:background="@color/forhead"
+            android:background="@drawable/editbacklightgreen"
             android:fallbackLineSpacing="false"
             android:fontFamily="@font/pt_sans"
             android:paddingLeft="40dp"
@@ -104,6 +104,12 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -115,10 +121,10 @@
                 android:id="@+id/HomeNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/fortitle"
+                android:layout_weight="0.5"
+                android:background="@drawable/editbacklightgreen"
                 android:fontFamily="@font/roboto_thin"
-                android:gravity="start"
+                android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/name"
@@ -127,12 +133,19 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9" />
+
+            <TextView
                 android:id="@+id/HomeFormText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
+                android:background="@drawable/editbacklightgreen"
                 android:fontFamily="@font/roboto_thin"
-                android:gravity="start"
+                android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:text="@string/form"

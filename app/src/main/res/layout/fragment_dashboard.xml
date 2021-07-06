@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="1dp"
-            android:background="@color/forhead"
+            android:background="@drawable/editbacklightgreen"
             android:fallbackLineSpacing="false"
             android:fontFamily="@font/pt_sans"
             android:paddingLeft="80dp"
@@ -35,6 +35,12 @@
             android:textColor="#DA000000"
             android:textSize="30sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,10 +52,10 @@
                 android:id="@+id/HomeNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/fortitle"
+                android:layout_weight="0.55"
+                android:background="@drawable/editbacklightgreen"
                 android:fontFamily="@font/roboto_thin"
-                android:gravity="start"
+                android:gravity="center"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/name"
@@ -58,12 +64,20 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:visibility="invisible" />
+
+            <TextView
                 android:id="@+id/HomeFormText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="0.55"
+                android:background="@drawable/editbacklightgreen"
                 android:fontFamily="@font/roboto_thin"
-                android:gravity="start"
+                android:gravity="center"
                 android:paddingLeft="2dp"
                 android:paddingRight="2dp"
                 android:text="@string/form"
@@ -71,6 +85,12 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:visibility="invisible" />
 
         <ListView
             android:id="@+id/HomeList"

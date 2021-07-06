@@ -27,7 +27,8 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
+                android:background="@drawable/editbacklightgreen"
                 android:fontFamily="@font/roboto_thin"
                 android:gravity="center"
                 android:text="@string/name"
@@ -35,18 +36,26 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <EditText
                 android:id="@+id/notifyName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:background="@drawable/edittextbackground"
                 android:ems="10"
+                android:fontFamily="@font/capriola"
                 android:inputType="text"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:fontFamily="@font/capriola"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -61,7 +70,8 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
+                android:background="@drawable/editbacklightgreen"
                 android:fontFamily="@font/roboto_thin"
                 android:gravity="center"
                 android:text="@string/quantity"
@@ -69,18 +79,26 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:visibility="invisible" />
+
             <EditText
                 android:id="@+id/notifyQuantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:background="@drawable/edittextbackground"
                 android:ems="10"
+                android:fontFamily="@font/capriola"
                 android:inputType="numberDecimal"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:fontFamily="@font/capriola"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -96,16 +114,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/roboto_thin"
                 android:gravity="center"
                 android:text="@string/time"
                 android:textColor="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <TimePicker
                 android:id="@+id/notifyTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:headerBackground="@color/lightgr" />
+                android:headerBackground="@drawable/editbacklightgreen" />
 
 
         </LinearLayout>
