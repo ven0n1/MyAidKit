@@ -27,9 +27,9 @@ public class ReminderAdapter extends ArrayAdapter <Reminder> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.reminder_item, null);
         }
         if (position%2==0){
-            convertView.setBackgroundColor(Color.argb(150, 150, 150, 150));
+            convertView.setBackgroundColor(Color.argb(190, 127, 255, 0));
         } else {
-            convertView.setBackgroundColor(Color.argb(150, 255, 255, 255));
+            convertView.setBackgroundColor(Color.argb(190, 152, 251, 152));
         }
         ((TextView) convertView.findViewById(R.id.name_reminder)).setText(reminder.getName());
         ((TextView) convertView.findViewById(R.id.quantity_reminder)).setText(reminder.getQuantity().toString());

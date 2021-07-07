@@ -25,9 +25,9 @@ public class MedicineAdapter extends ArrayAdapter <Medicine> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.medicine_item, null);
         }
         if (position%2==0){
-            convertView.setBackgroundColor(Color.argb(150, 150, 150, 150));
+            convertView.setBackgroundColor(Color.argb(190, 127, 255, 0));
         } else {
-            convertView.setBackgroundColor(Color.argb(150, 255, 255, 255));
+            convertView.setBackgroundColor(Color.argb(190, 152, 251, 152));
         }
         ((TextView) convertView.findViewById(R.id.name_medicine)).setText(medicine.getName());
         ((TextView) convertView.findViewById(R.id.form_medicine)).setText(medicine.getForm());

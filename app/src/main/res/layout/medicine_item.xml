@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -18,8 +19,7 @@
             android:id="@+id/name_medicine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/lightgr"
+            android:layout_weight="0.6"
             android:gravity="start"
             android:maxLength="15"
             android:paddingLeft="10dp"
@@ -29,18 +29,34 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/form_medicine"
+            android:id="@+id/textView26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/lightgr"
+            tools:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/form_medicine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
             android:fontFamily="@font/roboto_thin"
             android:gravity="start"
-            android:maxLength="15"
+            android:maxLength="20"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5"
+        tools:layout_editor_absoluteX="151dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
