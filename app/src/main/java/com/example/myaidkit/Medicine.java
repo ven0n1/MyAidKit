@@ -1,8 +1,16 @@
 package com.example.myaidkit;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class Medicine {
-    String name;
+    @PrimaryKey
+    @NonNull
     String link;
+    String name;
     String form;
     String composition;
     String influence;
@@ -12,14 +20,16 @@ public class Medicine {
     String side_effects;
     String contra;
     String special;
+    String date;
 
+    @Ignore
     public Medicine(String name, String link, String form) {
         this.name = name;
         this.link = link;
         this.form = form;
     }
 
-    public Medicine(String name, String link, String form, String composition, String influence, String kinetics, String indication, String dosage, String side_effects, String contra, String special) {
+    public Medicine(String name, String link, String form, String composition, String influence, String kinetics, String indication, String dosage, String side_effects, String contra, String special, String date) {
         this.name = name;
         this.link = link;
         this.form = form;
@@ -31,6 +41,7 @@ public class Medicine {
         this.side_effects = side_effects;
         this.contra = contra;
         this.special = special;
+        this.date = date;
     }
 
     public String getName() {
@@ -119,5 +130,13 @@ public class Medicine {
 
     public void setSpecial(String special) {
         this.special = special;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

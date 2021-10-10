@@ -19,6 +19,9 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -39,6 +42,9 @@ public class Description extends AppCompatActivity
     final int HOME = 2;
     String[] info;
     SQLiteDatabase mydatabase;
+    MedicineDatabase medicineDatabase;
+    MedicineDao medicineDao;
+    Medicine medicine;
     String date, n, f, link;
 
     @SuppressLint("SetTextI18n")
@@ -91,11 +97,13 @@ public class Description extends AppCompatActivity
         link = getIntent().getStringExtra(LINK);
         name.setText(n);
         form.setText(f);
-        File dbpath = getApplicationContext().getDatabasePath("medicines");
-        if (!Objects.requireNonNull(dbpath.getParentFile()).exists()) {
-            dbpath.getParentFile().mkdirs();
-        }
-        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
+        medicineDatabase = Room.databaseBuilder(getApplicationContext(), MedicineDatabase.class, "medicine").build();
+        medicineDao = medicineDatabase.medicineDao();
+//        File dbpath = getApplicationContext().getDatabasePath("medicines");
+//        if (!Objects.requireNonNull(dbpath.getParentFile()).exists()) {
+//            dbpath.getParentFile().mkdirs();
+//        }
+//        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
         if(type == INTERNET){
             aod.setText("Добавить");
             try {
@@ -128,30 +136,50 @@ public class Description extends AppCompatActivity
             });
         } else if(type == HOME){
             aod.setText("Удалить");
-            Cursor cursor = mydatabase.rawQuery("SELECT * FROM Description WHERE Link = " + DatabaseUtils.sqlEscapeString(link) + ";", null);
-            cursor.moveToFirst();
-            composition.setText(cursor.getString(3));
-            influence.setText(cursor.getString(4));
-            kinetics.setText(cursor.getString(5));
-            indication.setText(cursor.getString(6));
-            dosage.setText(cursor.getString(7));
-            side_effects.setText(cursor.getString(8));
-            contra.setText(cursor.getString(9));
-            special.setText(cursor.getString(10));
+//            Cursor cursor = mydatabase.rawQuery("SELECT * FROM Description WHERE Link = " + DatabaseUtils.sqlEscapeString(link) + ";", null);
+//            cursor.moveToFirst();
+            Thread thread = new Thread(){
+                @Override
+                public void run() {
+                    medicine = medicineDao.getByLink(link);
+                }
+            };
+            thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            composition.setText(medicine.getComposition());
+            influence.setText(medicine.getInfluence());
+            kinetics.setText(medicine.getKinetics());
+            indication.setText(medicine.getIndication());
+            dosage.setText(medicine.getDosage());
+            side_effects.setText(medicine.getSide_effects());
+            contra.setText(medicine.getContra());
+            special.setText(medicine.getSpecial());
             textDate.setVisibility(View.VISIBLE);
             Date.setVisibility(View.VISIBLE);
-            Date.setText(cursor.getString(11));
-            cursor.close();
+            Date.setText(medicine.getDate());
+//            cursor.close();
             aod.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mydatabase.delete("Description", "Link = " + DatabaseUtils.sqlEscapeString(link), null);
+//                    mydatabase.delete("Description", "Link = " + DatabaseUtils.sqlEscapeString(link), null);
+                    Thread thread = new Thread(){
+                        @Override
+                        public void run() {
+                            medicine = medicineDao.getByLink(link);
+                            medicineDao.delete(medicine);
+                        }
+                    };
+                    thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     setResult(RESULT_OK);
-//                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.dashboard);
-//                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction.detach(currentFragment);
-//                    fragmentTransaction.attach(currentFragment);
-//                    fragmentTransaction.commit();
                     finish();
                 }
             });
@@ -200,20 +228,33 @@ public class Description extends AppCompatActivity
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         date = dayOfMonth + "." + (month + 1) + "." + year;
-        mydatabase.execSQL("INSERT INTO Description(Name, Link, Form, Composition, Influence, Kinetics, Indication, Dosage, SideEffects, Contra, Special, Date) VALUES(" +
-                DatabaseUtils.sqlEscapeString(n) + ", " +
-                DatabaseUtils.sqlEscapeString(link) + ", " +
-                DatabaseUtils.sqlEscapeString(f) + ", " +
-                DatabaseUtils.sqlEscapeString(info[0]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[1]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[2]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[3]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[4]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[5]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[6]) + ", " +
-                DatabaseUtils.sqlEscapeString(info[7]) +", " +
-                DatabaseUtils.sqlEscapeString(date) +
-                ");");
+//        mydatabase.execSQL("INSERT INTO Description(Name, Link, Form, Composition, Influence, Kinetics, Indication, Dosage, SideEffects, Contra, Special, Date) VALUES(" +
+//                DatabaseUtils.sqlEscapeString(n) + ", " +
+//                DatabaseUtils.sqlEscapeString(link) + ", " +
+//                DatabaseUtils.sqlEscapeString(f) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[0]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[1]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[2]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[3]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[4]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[5]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[6]) + ", " +
+//                DatabaseUtils.sqlEscapeString(info[7]) +", " +
+//                DatabaseUtils.sqlEscapeString(date) +
+//                ");");
+        medicine = new Medicine(n, link, f, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], date);
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                medicineDao.insert(medicine);
+            }
+        };
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 

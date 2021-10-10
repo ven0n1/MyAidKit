@@ -1,0 +1,99 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f4c21432a89ff6242aa8a9b10b70be6a",
+    "entities": [
+      {
+        "tableName": "Medicine",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`link` TEXT NOT NULL, `name` TEXT, `form` TEXT, `composition` TEXT, `influence` TEXT, `kinetics` TEXT, `indication` TEXT, `dosage` TEXT, `side_effects` TEXT, `contra` TEXT, `special` TEXT, `date` TEXT, PRIMARY KEY(`link`))",
+        "fields": [
+          {
+            "fieldPath": "link",
+            "columnName": "link",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "form",
+            "columnName": "form",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "composition",
+            "columnName": "composition",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "influence",
+            "columnName": "influence",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "kinetics",
+            "columnName": "kinetics",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "indication",
+            "columnName": "indication",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dosage",
+            "columnName": "dosage",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "side_effects",
+            "columnName": "side_effects",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "contra",
+            "columnName": "contra",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "special",
+            "columnName": "special",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "link"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f4c21432a89ff6242aa8a9b10b70be6a\")"
+    ]
+  }
+}

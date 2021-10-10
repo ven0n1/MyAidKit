@@ -51,21 +51,21 @@ public class HomeFragment extends Fragment {
         if (!Objects.requireNonNull(dbpath.getParentFile()).exists()) {
             dbpath.getParentFile().mkdirs();
         }
-        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
-        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Description(" +
-                "Name TEXT, " +
-                "Link TEXT PRIMARY KEY, " +
-                "Form TEXT, " +
-                "Composition TEXT, " +
-                "Influence TEXT, " +
-                "Kinetics TEXT, " +
-                "Indication TEXT, " +
-                "Dosage TEXT, " +
-                "SideEffects TEXT, " +
-                "Contra TEXT, " +
-                "Special TEXT, " +
-                "Date TEXT" +
-                ");");
+//        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
+//        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS Description(" +
+//                "Name TEXT, " +
+//                "Link TEXT PRIMARY KEY, " +
+//                "Form TEXT, " +
+//                "Composition TEXT, " +
+//                "Influence TEXT, " +
+//                "Kinetics TEXT, " +
+//                "Indication TEXT, " +
+//                "Dosage TEXT, " +
+//                "SideEffects TEXT, " +
+//                "Contra TEXT, " +
+//                "Special TEXT, " +
+//                "Date TEXT" +
+//                ");");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
