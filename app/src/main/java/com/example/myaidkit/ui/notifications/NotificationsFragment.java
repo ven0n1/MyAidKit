@@ -20,10 +20,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.room.Room;
 
+import com.example.myaidkit.AppDatabase;
+import com.example.myaidkit.Medicine;
 import com.example.myaidkit.R;
 import com.example.myaidkit.Reminder;
 import com.example.myaidkit.ReminderAdapter;
+import com.example.myaidkit.ReminderDao;
 
 import java.io.File;
 import java.util.Objects;
@@ -42,6 +46,10 @@ public class NotificationsFragment extends Fragment {
     final int ADD = 1;
     final int DELETE = 2;
     final String TAG = "delete";
+    AppDatabase appDatabase;
+    ReminderDao reminderDao;
+    Reminder reminder;
+    Reminder[] reminders = null;
 
     private NotificationsViewModel notificationsViewModel;
 
@@ -62,7 +70,21 @@ public class NotificationsFragment extends Fragment {
         notifyDB = new com.allyants.notifyme.Notification.NotificationDBHelper(getContext());
         mydatabase = notifyDB.getReadableDatabase();
 
-        Reminder[] reminders = makeArray();
+//        Reminder[] reminders = makeArray();
+        Thread thread = new Thread(){
+            @Override
+            public void run() {
+                appDatabase = Room.databaseBuilder(requireContext(), AppDatabase.class, "medicine").build();
+                reminderDao = appDatabase.reminderDao();
+                reminders = reminderDao.getAll().toArray(new Reminder[0]);
+            }
+        };
+        thread.start();
+        try {
+            thread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ReminderAdapter adapter = new ReminderAdapter(this.requireActivity(), reminders);
         ListView lv = root.findViewById(R.id.NotifyList);
         lv.setAdapter(adapter);

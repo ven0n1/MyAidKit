@@ -1,6 +1,7 @@
 package com.example.myaidkit.ui.notifications;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -15,8 +16,10 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.allyants.notifyme.NotifyMe;
+import com.example.myaidkit.AppDatabase;
 import com.example.myaidkit.R;
 import com.example.myaidkit.Reminder;
+import com.example.myaidkit.ReminderDao;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import java.io.File;
@@ -32,6 +35,10 @@ public class Notification extends AppCompatActivity {
     final String QUANTITY = "quantity";
     final String TIME = "time";
     final String TITLE = "Пора принять лекарства";
+    AppDatabase appDatabase;
+    ReminderDao reminderDao;
+    Reminder reminder;
+    Thread thread;
     final int ADD = 1;
     final int DELETE = 2;
 
@@ -46,6 +53,8 @@ public class Notification extends AppCompatActivity {
         TimePicker t = findViewById(R.id.notifyTime);
         t.setIs24HourView(true);
         final NotifyMe.Builder notifyMe = new NotifyMe.Builder(getApplicationContext());
+        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "medicine").build();
+        reminderDao = appDatabase.reminderDao();
         int type = getIntent().getIntExtra(TYPE, 0);
         if (type == ADD) {
             button.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +67,19 @@ public class Notification extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY, t.getHour());
                         calendar.set(Calendar.MINUTE, t.getMinute());
                     }
-                    Reminder reminder = new Reminder(name, quantity, calendar.getTimeInMillis());
+                    reminder = new Reminder(name, quantity, calendar.getTimeInMillis());
+                    thread = new Thread(){
+                        @Override
+                        public void run() {
+                            reminderDao.insert(reminder);
+                        }
+                    };
+                    thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     notifyMe.title(TITLE);
                     notifyMe.content("Примите: " + reminder.getName() + " в объеме: " + reminder.getQuantity());
                     notifyMe.time(calendar);//The time to popup notification
@@ -72,7 +93,7 @@ public class Notification extends AppCompatActivity {
             button1.setVisibility(View.VISIBLE);
             button1.setText("Удалить");
             int id = getIntent().getIntExtra(ID, 0);
-            Reminder reminder = new Reminder(id,
+            reminder = new Reminder(id,
                     getIntent().getStringExtra(NAME),
                     getIntent().getFloatExtra(QUANTITY, 0),
                     getIntent().getLongExtra(TIME, 0));
@@ -88,6 +109,18 @@ public class Notification extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    thread = new Thread(){
+                        @Override
+                        public void run() {
+                            reminderDao.delete(reminder);
+                        }
+                    };
+                    thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     NotifyMe.cancel(getApplicationContext(), id);
                     String name = editTextName.getText().toString();
                     Float quantity = Float.valueOf(editTextQuantity.getText().toString());
@@ -96,7 +129,19 @@ public class Notification extends AppCompatActivity {
                         calendar.set(Calendar.HOUR_OF_DAY, t.getHour());
                         calendar.set(Calendar.MINUTE, t.getMinute());
                     }
-                    Reminder reminder = new Reminder(name, quantity, calendar.getTimeInMillis());
+                    reminder = new Reminder(name, quantity, calendar.getTimeInMillis());
+                    thread = new Thread(){
+                        @Override
+                        public void run() {
+                            reminderDao.insert(reminder);
+                        }
+                    };
+                    thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     notifyMe.title(TITLE);
                     notifyMe.content("Примите: " + reminder.getName() + " в объеме: " + reminder.getQuantity());
                     notifyMe.time(calendar);//The time to popup notification
@@ -109,6 +154,18 @@ public class Notification extends AppCompatActivity {
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    thread = new Thread(){
+                        @Override
+                        public void run() {
+                            reminderDao.delete(reminder);
+                        }
+                    };
+                    thread.start();
+                    try {
+                        thread.join();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     NotifyMe.cancel(getApplicationContext(), id);
                     setResult(RESULT_OK);
                     finish();

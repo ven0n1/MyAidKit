@@ -3,8 +3,6 @@ package com.example.myaidkit;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -19,16 +17,12 @@ import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class Description extends AppCompatActivity
@@ -41,8 +35,7 @@ public class Description extends AppCompatActivity
     final int INTERNET = 1;
     final int HOME = 2;
     String[] info;
-    SQLiteDatabase mydatabase;
-    MedicineDatabase medicineDatabase;
+    AppDatabase appDatabase;
     MedicineDao medicineDao;
     Medicine medicine;
     String date, n, f, link;
@@ -97,13 +90,8 @@ public class Description extends AppCompatActivity
         link = getIntent().getStringExtra(LINK);
         name.setText(n);
         form.setText(f);
-        medicineDatabase = Room.databaseBuilder(getApplicationContext(), MedicineDatabase.class, "medicine").build();
-        medicineDao = medicineDatabase.medicineDao();
-//        File dbpath = getApplicationContext().getDatabasePath("medicines");
-//        if (!Objects.requireNonNull(dbpath.getParentFile()).exists()) {
-//            dbpath.getParentFile().mkdirs();
-//        }
-//        mydatabase = SQLiteDatabase.openOrCreateDatabase(dbpath,null);
+        appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "medicine").build();
+        medicineDao = appDatabase.medicineDao();
         if(type == INTERNET){
             aod.setText("Добавить");
             try {
@@ -129,15 +117,12 @@ public class Description extends AppCompatActivity
             aod.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    Medicine medicine = new Medicine(n, link, f, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7]);
                     CalendarFragment calendarFragment = new CalendarFragment();
                     calendarFragment.show(getSupportFragmentManager(), DATE);
                 }
             });
         } else if(type == HOME){
             aod.setText("Удалить");
-//            Cursor cursor = mydatabase.rawQuery("SELECT * FROM Description WHERE Link = " + DatabaseUtils.sqlEscapeString(link) + ";", null);
-//            cursor.moveToFirst();
             Thread thread = new Thread(){
                 @Override
                 public void run() {
@@ -228,20 +213,6 @@ public class Description extends AppCompatActivity
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
         date = dayOfMonth + "." + (month + 1) + "." + year;
-//        mydatabase.execSQL("INSERT INTO Description(Name, Link, Form, Composition, Influence, Kinetics, Indication, Dosage, SideEffects, Contra, Special, Date) VALUES(" +
-//                DatabaseUtils.sqlEscapeString(n) + ", " +
-//                DatabaseUtils.sqlEscapeString(link) + ", " +
-//                DatabaseUtils.sqlEscapeString(f) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[0]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[1]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[2]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[3]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[4]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[5]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[6]) + ", " +
-//                DatabaseUtils.sqlEscapeString(info[7]) +", " +
-//                DatabaseUtils.sqlEscapeString(date) +
-//                ");");
         medicine = new Medicine(n, link, f, info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], date);
         Thread thread = new Thread(){
             @Override
