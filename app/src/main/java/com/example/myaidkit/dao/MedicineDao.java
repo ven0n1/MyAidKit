@@ -1,10 +1,12 @@
-package com.example.myaidkit;
+package com.example.myaidkit.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.RoomWarnings;
+
+import com.example.myaidkit.entity.Medicine;
 
 import java.util.List;
 

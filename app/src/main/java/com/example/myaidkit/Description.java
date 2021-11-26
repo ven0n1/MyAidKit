@@ -3,7 +3,6 @@ package com.example.myaidkit;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +18,9 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import com.example.myaidkit.dao.MedicineDao;
+import com.example.myaidkit.entity.Medicine;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -27,13 +29,6 @@ import java.util.concurrent.ExecutionException;
 
 public class Description extends AppCompatActivity
         implements DatePickerDialog.OnDateSetListener {
-    final String NAME = "name";
-    final String LINK = "link";
-    final String FORM = "form";
-    final String TYPE = "type";
-    final String DATE = "date input";
-    final int INTERNET = 1;
-    final int HOME = 2;
     String[] info;
     AppDatabase appDatabase;
     MedicineDao medicineDao;
@@ -84,15 +79,15 @@ public class Description extends AppCompatActivity
                 }
             });
         }
-        int type = getIntent().getIntExtra(TYPE, 0);
-        n = getIntent().getStringExtra(NAME);
-        f = getIntent().getStringExtra(FORM);
-        link = getIntent().getStringExtra(LINK);
+        int type = getIntent().getIntExtra(Constants.TYPE, 0);
+        n = getIntent().getStringExtra(Constants.NAME);
+        f = getIntent().getStringExtra(Constants.FORM);
+        link = getIntent().getStringExtra(Constants.LINK);
         name.setText(n);
         form.setText(f);
         appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "medicine").build();
         medicineDao = appDatabase.medicineDao();
-        if(type == INTERNET){
+        if(type == Constants.INTERNET){
             aod.setText("Добавить");
             try {
                 info = new MyTask().execute(link).get();
@@ -118,10 +113,10 @@ public class Description extends AppCompatActivity
                 @Override
                 public void onClick(View view) {
                     CalendarFragment calendarFragment = new CalendarFragment();
-                    calendarFragment.show(getSupportFragmentManager(), DATE);
+                    calendarFragment.show(getSupportFragmentManager(), Constants.DATE);
                 }
             });
-        } else if(type == HOME){
+        } else if(type == Constants.HOME){
             aod.setText("Удалить");
             Thread thread = new Thread(){
                 @Override

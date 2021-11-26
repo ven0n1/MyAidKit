@@ -1,7 +1,5 @@
 package com.example.myaidkit.ui.notifications;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,10 +8,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,14 +19,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
 import com.example.myaidkit.AppDatabase;
-import com.example.myaidkit.Medicine;
 import com.example.myaidkit.R;
-import com.example.myaidkit.Reminder;
-import com.example.myaidkit.ReminderAdapter;
-import com.example.myaidkit.ReminderDao;
-
-import java.io.File;
-import java.util.Objects;
+import com.example.myaidkit.entity.Reminder;
+import com.example.myaidkit.adapter.ReminderAdapter;
+import com.example.myaidkit.dao.ReminderDao;
 
 import static android.app.Activity.RESULT_OK;
 

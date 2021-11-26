@@ -1,9 +1,11 @@
-package com.example.myaidkit;
+package com.example.myaidkit.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+import com.example.myaidkit.entity.Reminder;
 
 import java.util.List;
 

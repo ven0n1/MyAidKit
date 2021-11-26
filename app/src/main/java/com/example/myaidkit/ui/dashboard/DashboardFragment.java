@@ -1,7 +1,6 @@
 package com.example.myaidkit.ui.dashboard;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,21 +15,17 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.room.Room;
 
+import com.example.myaidkit.Constants;
 import com.example.myaidkit.Description;
-import com.example.myaidkit.Medicine;
-import com.example.myaidkit.MedicineAdapter;
-import com.example.myaidkit.MedicineDao;
+import com.example.myaidkit.entity.Medicine;
+import com.example.myaidkit.adapter.MedicineAdapter;
+import com.example.myaidkit.dao.MedicineDao;
 import com.example.myaidkit.AppDatabase;
 import com.example.myaidkit.R;
 
 import static android.app.Activity.RESULT_OK;
 
 public class DashboardFragment extends Fragment {
-    final String NAME = "name";
-    final String LINK = "link";
-    final String FORM = "form";
-    final String TYPE = "type";
-    final int HOME = 2;
     AppDatabase appDatabase;
     MedicineDao medicineDao;
     Medicine medicine;
@@ -60,10 +55,10 @@ public class DashboardFragment extends Fragment {
         lv.setAdapter(adapter);
         lv.setOnItemClickListener((parent, view, position, id) -> {
             Intent intent = new Intent(root.getContext(), Description.class);
-            intent.putExtra(NAME, adapter.getItem(position).getName());
-            intent.putExtra(LINK, adapter.getItem(position).getLink());
-            intent.putExtra(FORM, adapter.getItem(position).getForm());
-            intent.putExtra(TYPE, HOME);
+            intent.putExtra(Constants.NAME, adapter.getItem(position).getName());
+            intent.putExtra(Constants.LINK, adapter.getItem(position).getLink());
+            intent.putExtra(Constants.FORM, adapter.getItem(position).getForm());
+            intent.putExtra(Constants.TYPE, Constants.HOME);
             startActivityForResult(intent, 1);
         });
 

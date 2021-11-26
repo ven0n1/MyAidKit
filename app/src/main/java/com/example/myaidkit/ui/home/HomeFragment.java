@@ -1,7 +1,6 @@
 package com.example.myaidkit.ui.home;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,26 +14,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.myaidkit.Constants;
 import com.example.myaidkit.Description;
-import com.example.myaidkit.Medicine;
-import com.example.myaidkit.MedicineAdapter;
+import com.example.myaidkit.entity.Medicine;
+import com.example.myaidkit.adapter.MedicineAdapter;
 import com.example.myaidkit.R;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class HomeFragment extends Fragment {
-    final String NAME = "name";
-    final String LINK = "link";
-    final String FORM = "form";
-    final String TYPE = "type";
-    final int INTERNET = 1;
     private HomeViewModel homeViewModel;
     Medicine[] medicines = {};
     MedicineAdapter adapter;
@@ -60,10 +52,10 @@ public class HomeFragment extends Fragment {
                 lv.setAdapter(adapter);
                 lv.setOnItemClickListener((parent, root, position, id) -> {
                     Intent intent = new Intent(root.getContext(), Description.class);
-                    intent.putExtra(NAME, adapter.getItem(position).getName());
-                    intent.putExtra(LINK, adapter.getItem(position).getLink());
-                    intent.putExtra(FORM, adapter.getItem(position).getForm());
-                    intent.putExtra(TYPE, INTERNET);
+                    intent.putExtra(Constants.NAME, adapter.getItem(position).getName());
+                    intent.putExtra(Constants.LINK, adapter.getItem(position).getLink());
+                    intent.putExtra(Constants.FORM, adapter.getItem(position).getForm());
+                    intent.putExtra(Constants.TYPE, Constants.INTERNET);
                     startActivity(intent);
                 });
             }

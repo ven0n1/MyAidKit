@@ -1,4 +1,4 @@
-package com.example.myaidkit;
+package com.example.myaidkit.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.example.myaidkit.R;
+import com.example.myaidkit.entity.Medicine;
 
 public class MedicineAdapter extends ArrayAdapter <Medicine> {
 

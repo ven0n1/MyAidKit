@@ -1,4 +1,4 @@
-package com.example.myaidkit;
+package com.example.myaidkit.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.Entity;

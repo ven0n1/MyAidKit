@@ -3,9 +3,6 @@ package com.example.myaidkit.ui.notifications;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,34 +10,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.allyants.notifyme.NotifyMe;
 import com.example.myaidkit.AppDatabase;
+import com.example.myaidkit.Constants;
 import com.example.myaidkit.R;
-import com.example.myaidkit.Reminder;
-import com.example.myaidkit.ReminderDao;
-import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.example.myaidkit.entity.Reminder;
+import com.example.myaidkit.dao.ReminderDao;
 
 import java.io.File;
 import java.util.Calendar;
-import java.util.Objects;
 
 public class Notification extends AppCompatActivity {
-    SQLiteDatabase mydatabase;
-    File dbpath;
-    final String TYPE = "type";
-    final String ID = "id";
-    final String NAME = "name";
-    final String QUANTITY = "quantity";
-    final String TIME = "time";
-    final String TITLE = "Пора принять лекарства";
     AppDatabase appDatabase;
     ReminderDao reminderDao;
     Reminder reminder;
     Thread thread;
-    final int ADD = 1;
-    final int DELETE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +40,13 @@ public class Notification extends AppCompatActivity {
         final NotifyMe.Builder notifyMe = new NotifyMe.Builder(getApplicationContext());
         appDatabase = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "medicine").build();
         reminderDao = appDatabase.reminderDao();
-        int type = getIntent().getIntExtra(TYPE, 0);
-        if (type == ADD) {
+        int type = getIntent().getIntExtra(Constants.TYPE, 0);
+        if (type == Constants.ADD) {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     String name = editTextName.getText().toString();
-                    Float quantity = Float.valueOf(editTextQuantity.getText().toString());
+                    Float quantity = editTextQuantity.getText().toString().isEmpty()?0:Float.parseFloat(editTextQuantity.getText().toString());
                     Calendar calendar = Calendar.getInstance();
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         calendar.set(Calendar.HOUR_OF_DAY, t.getHour());
@@ -80,7 +65,7 @@ public class Notification extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    notifyMe.title(TITLE);
+                    notifyMe.title(Constants.TITLE);
                     notifyMe.content("Примите: " + reminder.getName() + " в объеме: " + reminder.getQuantity());
                     notifyMe.time(calendar);//The time to popup notification
                     notifyMe.rrule("FREQ=HOURLY");//RRULE for frequency of notification
@@ -89,14 +74,14 @@ public class Notification extends AppCompatActivity {
                     finish();
                 }
             });
-        } else if (type == DELETE){
+        } else if (type == Constants.DELETE){
             button1.setVisibility(View.VISIBLE);
             button1.setText("Удалить");
-            int id = getIntent().getIntExtra(ID, 0);
+            int id = getIntent().getIntExtra(Constants.ID, 0);
             reminder = new Reminder(id,
-                    getIntent().getStringExtra(NAME),
-                    getIntent().getFloatExtra(QUANTITY, 0),
-                    getIntent().getLongExtra(TIME, 0));
+                    getIntent().getStringExtra(Constants.NAME),
+                    getIntent().getFloatExtra(Constants.QUANTITY, 0),
+                    getIntent().getLongExtra(Constants.TIME, 0));
             editTextName.setText(reminder.getName());
             editTextQuantity.setText(Float.toString(reminder.getQuantity()));
             Calendar calendar = Calendar.getInstance();
@@ -142,7 +127,7 @@ public class Notification extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    notifyMe.title(TITLE);
+                    notifyMe.title(Constants.TITLE);
                     notifyMe.content("Примите: " + reminder.getName() + " в объеме: " + reminder.getQuantity());
                     notifyMe.time(calendar);//The time to popup notification
                     notifyMe.rrule("FREQ=HOURLY");//RRULE for frequency of notification
